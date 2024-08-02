@@ -3,7 +3,8 @@ import React from 'react';
 const Therapist = ({therapist}) => {
     return (
         <div>
-            abc
+            <p>{therapist?.title}</p>
+            <img src={therapist?.image} alt="" />
         </div>
     );
 };

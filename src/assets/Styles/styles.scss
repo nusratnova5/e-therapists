@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+$light-red: #FFECEA;
+$dark-red: #F15E4A;
+$dark-black: #152A16;
+$light-black: #232F3C;
+$midnight-black: #1A2531;
+$dark-gray: #5C635A;
+$light-gray: #E7E7E7;
+$medium-gray: #D1D1D1;
+$charcoal-gray: #1F2833;
+$gray: #EEF2F5;
+$dark-blue: #156BCA;
+$sky-blue: #4285F3;
+.bg-light-red {
+  background-color: $light-red;
+}
+.bg-charcoal-gray{
+  background-color: $charcoal-gray;
+}
+
+.text-dark-red {
+  color: $dark-red;
+}
+.text-blue{
+  color: $dark-blue;
+}
+
+.border-gray {
+  border-color: $light-gray;
+}
+
+.text-dark-blue {
+  color: $dark-blue;
+}
+.text-midnight-black{
+  color: $midnight-black;
+}
+.text-medium-gray{
+  color: $medium-gray;
+}
+.text-sky-blue{
+  color: $sky-blue;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+// .therapists {
+//   .slick-track {
+//     display: flex;
+//     gap: 6px;
+//   }
+// }
+.drawer-background {
+  background-image: url('/images/auth-2.jpeg'); /* Path relative to the public folder */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

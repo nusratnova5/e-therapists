@@ -18,34 +18,24 @@ const Testimonials = () => {
             });
     }, []);
 
-    const handleNext = () => {
-        sliderRef.current.slickNext();
-    };
-
-    const handlePrevious = () => {
-        sliderRef.current.slickPrev();
-    };
-
     const settings = {
-        dots: false,
+        dots: true,
         infinite: true,
         slidesToShow: 2,
         slidesToScroll: 1,
         autoplay: false,
-        autoplaySpeed: 3000
+        arrows: false,
+        autoplaySpeed: 3000,
+        vertical: true,
+        verticalSwiping: true,
     };
     return (
-        <div>
-            <Slider ref={sliderRef} {...settings}>
+        <div className='h-[160px]'>
+            <Slider {...settings}>
                 {
                     testimonials?.map(testimonial=><Testimonial testimonial={testimonial}/>)
                 }
             </Slider>
-
-            <div>
-                <button onClick={handlePrevious}>Previous</button>
-                <button onClick={handleNext}>Next</button>
-            </div>
         </div>
     );
 };

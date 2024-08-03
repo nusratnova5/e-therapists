@@ -10,12 +10,12 @@ const DashboardLayout = () => {
     }
     return (
         <div className='h-screen overflow-hidden flex flex-col'>
-            <DashboardHeader toggleSidebar={toggleSidebar} isOpenSidebar={isOpenSidebar}></DashboardHeader>
             <div className='flex flex-1 overflow-hidden'>
                 <div >
                     <SideBar toggleSidebar={toggleSidebar} isOpenSidebar={isOpenSidebar} />
                 </div>
-                <div className='p-10 flex-1 overflow-y-scroll h-full pt-20' >
+                <div className='p-10 bg-slate-100 flex-1 overflow-y-scroll h-full pt-20' >
+                    <DashboardHeader toggleSidebar={toggleSidebar} isOpenSidebar={isOpenSidebar}></DashboardHeader>
                     <Outlet />
                 </div>
             </div>

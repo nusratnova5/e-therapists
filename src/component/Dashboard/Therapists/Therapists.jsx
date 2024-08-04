@@ -9,6 +9,7 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 const Therapists = () => {
     let sliderRef = useRef(null);
     const [therapists, setTherapists] = useState([]);
+
     useEffect(() => {
         axios.get('/jsons/therapist.json')
             .then(response => {
@@ -29,7 +30,7 @@ const Therapists = () => {
 
     const settings = {
         dots: false,
-        infinite: true,
+        infinite: false,
         slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: false,
@@ -55,24 +56,40 @@ const Therapists = () => {
             },
             {
                 breakpoint: 480,
+                arrows: false,
                 settings: {
+                    className: "center",
+                    centerMode: true,
+                    infinite: true,
+                    centerPadding: "60px",
                     slidesToShow: 1,
-                    slidesToScroll: 1
+                    speed: 500
                 }
             }
         ]
     };
     return (
-        <div className='p-5 bg-white flex gap-5 therapists'>
-            <button onClick={handlePrevious}><IoIosArrowBack className='p-2 text-4xl bg-gray rounded-full' /></button>
-            <div className='flex-1 w-0'>
-                <Slider ref={sliderRef} {...settings}>
-                    {
-                        therapists?.map(therapist => <Therapist therapist={therapist} />)
-                    }
-                </Slider>
+        <div>
+            <h1 className='mb-2 px-4 text-lg font-medium text-dark-black'>Featured Testimonials</h1>
+            <div className='p-5 bg-white flex items-center gap-5 therapists rounded-lg'>
+                <button className='hidden lg:block' onClick={handlePrevious}>
+                    <IoIosArrowBack className={`rounded-full p-2 text-4xl  ${'abc' === 'previous' ? 'bg-dark-blue text-white' : 'bg-light-blue text-dark-black'}`} />
+                </button>
+                <div className='flex-1 w-0'>
+                    <Slider ref={sliderRef} {...settings}>
+                        {
+                            therapists?.map((therapist, index) => <Therapist
+                                therapist={therapist} />)
+                        }
+                    </Slider>
+                </div>
+                <button
+                    onClick={handleNext}
+                    className='hidden lg:block'
+                >
+                    <IoIosArrowForward className={`p-2 text-4xl rounded-full ${'abc' === 'next' ? 'bg-dark-blue text-white' : 'bg-light-blue text-dark-black'}`} />
+                </button>
             </div>
-            <button onClick={handleNext}><IoIosArrowForward className='p-2 text-4xl bg-gray rounded-full'/></button>
         </div>
     );
 };

@@ -10,18 +10,47 @@ $medium-gray: #D1D1D1;
 $charcoal-gray: #1F2833;
 $gray: #EEF2F5;
 $dark-blue: #156BCA;
+$light-blue: #D4E9FF;
 $sky-blue: #4285F3;
+$charcoal: #2E3439;
+
 .bg-light-red {
   background-color: $light-red;
 }
-.bg-charcoal-gray{
+
+.bg-charcoal-gray {
   background-color: $charcoal-gray;
+}
+
+.bg-light-blue {
+  background-color: $light-blue;
+}
+
+.bg-dark-blue {
+  background-color: $dark-blue;
+}
+
+.bg-sky-blue {
+  background-color: $sky-blue;
+}
+
+.bg-light-gray {
+  background-color: $light-gray;
+}
+
+.bg-gray {
+  background-color: $gray;
+}
+
+.text-charcoal {
+  color: $charcoal;
 }
 
 .text-dark-red {
   color: $dark-red;
 }
-.text-blue{
+
+.text-blue {
   color: $dark-blue;
 }
 
@@ -32,29 +61,83 @@ $sky-blue: #4285F3;
 .text-dark-blue {
   color: $dark-blue;
 }
-.text-midnight-black{
+
+.text-dark-black {
+  color: $dark-black;
+}
+
+.text-midnight-black {
   color: $midnight-black;
 }
-.text-medium-gray{
+
+.text-medium-gray {
   color: $medium-gray;
 }
-.text-sky-blue{
+
+.text-dark-gray {
+  color: $dark-gray !important;
+}
+
+.text-light-gray {
+  color: $light-gray;
+}
+
+.text-sky-blue {
   color: $sky-blue;
+}
+
+.bg-transparent {
+  background: transparent !important;
 }
 
 body {
   font-family: "Poppins", sans-serif;
 }
 
-// .therapists {
-//   .slick-track {
-//     display: flex;
-//     gap: 6px;
-//   }
-// }
+.therapists {
+  .slick-track {
+    display: flex;
+    gap: 20px;
+  }
+}
+
 .drawer-background {
-  background-image: url('/images/auth-2.jpeg'); /* Path relative to the public folder */
+  background-image: url('/images/auth-2.jpeg');
+  /* Path relative to the public folder */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.auth_slider-container {
+  .slick-slider,
+  .slick-list,
+  .slick-track,
+  .slick-slide,
+  .slick-slide>div {
+    height: 100%;
+  }
+
+  .slick-slider {
+    position: relative;
+  }
+
+  .slick-dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 12px;
+  }
+}
+
+.slick-dots li.slick-active button:before {
+  color: $dark-blue;
+}
+
+.menu .active {
+  color: $dark-black !important;
+  background: $light-blue !important;
+  font-weight: 500;
+  border-radius: 0;
+  border-left: 5px solid $dark-black;
 }

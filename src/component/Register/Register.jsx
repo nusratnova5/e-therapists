@@ -5,6 +5,9 @@ import Swal from 'sweetalert2';
 import { auth } from '../../Firebase/Firebase.config';
 import axios from 'axios';
 import img from '/images/auth-1.jpeg'
+import AuthSlider from './AuthSlider';
+import LargeDevice from './LargeDevice';
+import SmallDevice from './SmallDevice';
 
 const Register = () => {
     const [
@@ -39,7 +42,7 @@ const Register = () => {
         }
         if (!createUserError && !updateProfileError) {
             try {
-                const userData = { displayName, photoURL, email  };
+                const userData = { displayName, photoURL, email };
                 const response = await axios.post(`${import.meta.env.VITE_API_URL}/auth/register`, userData);
                 console.log('User created successfully:', response.data);
             } catch (error) {
@@ -55,46 +58,9 @@ const Register = () => {
     }, [user, navigate]);
 
     return (
-        <div className="">
-            <div className="grid grid-cols-1 lg:grid-cols-3">
-                <div className=" w-full col-span-1">
-                    <form onSubmit={handleSignUp} className="">
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text font-bold">Name</span>
-                            </label>
-                            <input type="text" name="displayName" placeholder="@username" className="input input-bordered rounded-none" required />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text font-bold">Email</span>
-                            </label>
-                            <input type="email" name="email" placeholder="Enter your email" className="input input-bordered" required />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text font-bold">Password</span>
-                            </label>
-                            <input type="password" name='password' placeholder="password" className="input input-bordered" required />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text font-bold">Confirm Password</span>
-                            </label>
-                            <input type="password" name='password' placeholder="password" className="input input-bordered" required />
-                        </div>
-                        <div className="form-control mt-6">
-                            <button className="btn bg-accent hover:bg-slate-600 text-white uppercase tracking-widest">Sign up</button>
-                        </div>
-                        <div className=' mb-3'>
-                            <p>Already have an account? <Link to={'/login'} className='text-accent font-bold'>Click here </Link>to login.</p>
-                        </div>
-                    </form>
-                </div>
-                <div className="text-center lg:text-left col-span-2 lg:h-[802px]">
-                    <img src={img} className=''></img>
-                </div>
-            </div>
+        <div>
+            <div className='hidden lg:block'><LargeDevice handleSignUp={handleSignUp} /></div>
+            <div className='block lg:hidden'><SmallDevice handleSignUp={handleSignUp} /></div>
         </div>
     );
 };

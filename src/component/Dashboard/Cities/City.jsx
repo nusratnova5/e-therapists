@@ -3,7 +3,7 @@ import React from 'react';
 const City = ({city}) => {
     return (
         <div className=''>
-            <p>{city?.name}</p>
+            <p className='text-center text-blue text-sm underline py-4'>{city?.name}</p>
             
         </div>
     );

@@ -14,7 +14,7 @@ const DashboardLayout = () => {
                 <div >
                     <SideBar toggleSidebar={toggleSidebar} isOpenSidebar={isOpenSidebar} />
                 </div>
-                <div className='p-10 bg-slate-100 flex-1 overflow-y-scroll h-full pt-20' >
+                <div className='lg:p-10 lg:pt-20 pt-16 bg-slate-100 flex-1 overflow-y-scroll h-full' >
                     <DashboardHeader toggleSidebar={toggleSidebar} isOpenSidebar={isOpenSidebar}></DashboardHeader>
                     <Outlet />
                 </div>

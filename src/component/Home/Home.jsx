@@ -73,7 +73,7 @@ const Home = () => {
                     Create Account
                     <p className='text-white'>Fill in Your Information</p>
                 </button>
-                
+
             </div>
 
             {/* Bottom drawer */}

@@ -1,42 +1,48 @@
-# tech-hub-front
+# Frontend Developer Intern Task
 
-## Live Demo
+This project is a web application built based on a provided Figma design. It includes login functionality using Firebase, client-side routing with react-router-dom, and dynamic data display. Tailwind CSS is used for styling the components.
 
-[Click Here](https://tech-hub-front-pearl.vercel.app)
+## Technologies Used
+- React.js
+- Firebase for authentication
+- react-router-dom for routing
+- Tailwind CSS for styling
+- Static JSON for dynamic data
 
-Please login again if any problem while browsing the demo website.
+## Installation
 
-## 1. Clone
+1. Clone the repository
+    ```sh
+    git clone https://github.com/nusratnova5/e-therapists
+    ```
 
-First clone the repository
-```bash
-git clone https://github.com/nusratnova5/tech-hub-front.git
+2. Navigate to the project directory
+    ```sh
+    cd e-therapists
+    ```
+
+3. Install dependencies
+    ```sh
+    npm install
+    ```
+
+5. Start the development server
+    ```sh
+    npm run dev
+    ```
+
+## Deployment
+The application is deployed on Vercel. You can view the live demo [here](https://e-therapist.vercel.app).
+
+## Usage
+1. Open the application in your browser.
+2. Navigate to the login page and log in using your credentials.
+3. Upon successful login, you will be redirected to the main content page.
+4. Use the search functionality to filter and view dynamic data.
 ```
 
-## 2. Navigate to the Project Directory
+## Contact
+For any questions or feedback, please contact me at nusrat.nova16@gmail.com.
 
-Navigate to the Project Directory
-```bash
-cd tech-hub-front
-```
-
-## 3. Install Dependencies
-
-Install the project dependencies using npm:
-```bash
-npm install
-```
-
-## 4. Set Up Environment Variables
-
-Create a .env file in the root of your project directory and add the necessary environment variables. Here is an example of what it might look like:
-```bash
-VITE_API_URL=your_node_server_url
-```
-
-## 5. Run the Project
-
-Start the server:
-```bash
-npm run dev
-```
+## Acknowledgements
+Thanks to the team for providing the Figma design and guidance throughout the project.

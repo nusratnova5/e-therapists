@@ -7,7 +7,7 @@ import Testimonial from './Testimonial';
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
-  
+
   useEffect(() => {
     axios.get('/jsons/testimonials.json')
       .then(response => {
@@ -35,16 +35,16 @@ const Testimonials = () => {
   };
 
   return (
-   <div>
-    <h1 className='mb-2 px-4 text-lg font-medium text-dark-black'>Featured Testimonials</h1>
-     <div className="slider-container max-w-full overflow-hidden p-5 rounded-lg bg-white">
-      <Slider {...settings}>
-        {
-          testimonials?.map((testimonial, index) => <Testimonial key={index} testimonial={testimonial} />)
-        }
-      </Slider>
+    <div className='flex flex-col'>
+      <h1 className='mb-2 px-4 text-lg font-medium text-dark-black'>Featured Testimonials</h1>
+      <div className="slider-container max-w-full overflow-hidden p-5 rounded-lg bg-white flex-1">
+        <Slider {...settings}>
+          {
+            testimonials?.map((testimonial, index) => <Testimonial key={index} testimonial={testimonial} />)
+          }
+        </Slider>
+      </div>
     </div>
-   </div>
   );
 }
 

@@ -6,19 +6,8 @@ import axios from 'axios';
 import Therapist from './Therapist';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
-const Therapists = () => {
+const Therapists = ({therapists}) => {
     let sliderRef = useRef(null);
-    const [therapists, setTherapists] = useState([]);
-
-    useEffect(() => {
-        axios.get('/jsons/therapist.json')
-            .then(response => {
-                setTherapists(response.data);
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
-    }, []);
 
     const handleNext = () => {
         sliderRef.current.slickNext();

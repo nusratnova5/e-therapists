@@ -4,20 +4,20 @@ import { auth } from '../../Firebase/Firebase.config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import avatar from '/images/user.png'
-import { RiArrowDropDownLine } from 'react-icons/ri';
 import { SlArrowDown } from 'react-icons/sl';
 import { IoNotificationsOutline } from 'react-icons/io5';
 import { HiMiniArrowRightEndOnRectangle } from 'react-icons/hi2';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const DashboardHeader = ({ toggleSidebar }) => {
     const [user] = useAuthState(auth);
     const [signOut] = useSignOut(auth);
-
+    const navigate = useNavigate();
 
     const handleLogout = async () => {
         await signOut();
+        navigate('/login');
     };
 
     return (
@@ -52,7 +52,7 @@ const DashboardHeader = ({ toggleSidebar }) => {
                 <div className='flex justify-center items-center gap-3 '>
                     <IoNotificationsOutline className='border border-gray rounded-full text-3xl p-1' />
                     <div className="divider divider-horizontal m-0 hidden lg:block"></div>
-                    <button className='items-center gap-2 hidden lg:flex'>Logout<HiMiniArrowRightEndOnRectangle className='text-dark-red bg-light-red rounded-full p-2 text-4xl' />
+                    <button onClick={handleLogout} className='items-center gap-2 hidden lg:flex text-dark-red'>Logout<HiMiniArrowRightEndOnRectangle className='text-dark-red bg-light-red rounded-full p-2 text-4xl' />
                     </button>
                 </div>
 

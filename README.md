@@ -1,6 +1,6 @@
-# Frontend Developer Intern Task
+# E-Therapist
 
-This project is a web application built based on a provided Figma design. It includes login functionality using Firebase, client-side routing with react-router-dom, and dynamic data display. Tailwind CSS is used for styling the components.
+This project is a web application built based on searching therapist. It includes login functionality using Firebase, client-side routing with react-router-dom, and dynamic data display. Tailwind CSS is used for styling the components.
 
 ## Technologies Used
 - React.js

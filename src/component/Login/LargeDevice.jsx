@@ -26,13 +26,13 @@ const LargeDevice = ({handleGoogleLogin, googleimg, facebookimg, handleSignIn}) 
                             <label className="label">
                                 <span className="label-text text-dark-black font-medium">Email</span>
                             </label>
-                            <input type="email" name="email" placeholder="Enter your email" className="input input-bordered" required />
+                            <input type="email" name="email" defaultValue={'test@gmail.com'} placeholder="Enter your email" className="input input-bordered" required />
                         </div>
                         <div className="form-control mb-3">
                             <label className="label">
                                 <span className="label-text text-dark-black font-medium">Password</span>
                             </label>
-                            <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+                            <input type="password" name='password' defaultValue={'123456'} placeholder="password" className="input input-bordered" required />
                         </div>
                         <div className="form-control flex flex-row items-center justify-between">
                             <label className="label cursor-pointer justify-start gap-2 text-sm">

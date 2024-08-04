@@ -52,7 +52,7 @@ const DashboardHeader = ({ toggleSidebar }) => {
                 <div className='flex justify-center items-center gap-3 '>
                     <IoNotificationsOutline className='border border-gray rounded-full text-3xl p-1' />
                     <div className="divider divider-horizontal m-0 hidden lg:block"></div>
-                    <button onClick={handleLogout} className='items-center gap-2 hidden lg:flex text-dark-red'>Logout<HiMiniArrowRightEndOnRectangle className='text-dark-red bg-light-red rounded-full p-2 text-4xl' />
+                    <button onClick={handleLogout} className='btn  bg-transparent border-0 shadow-none items-center gap-2 hidden lg:flex text-dark-red'>Logout<HiMiniArrowRightEndOnRectangle className='text-dark-red bg-light-red rounded-full p-2 text-4xl' />
                     </button>
                 </div>
 

@@ -40,9 +40,3 @@ The application is deployed on Vercel. You can view the live demo [here](https:/
 3. Upon successful login, you will be redirected to the main content page.
 4. Use the search functionality to filter and view dynamic data.
 ```
-
-## Contact
-For any questions or feedback, please contact me at nusrat.nova16@gmail.com.
-
-## Acknowledgements
-Thanks to the team for providing the Figma design and guidance throughout the project.

@@ -9,7 +9,7 @@ const DashboardLayout = () => {
         setIsOpenIsdebar(!isOpenSidebar);
     }
     return (
-        <div className='h-screen overflow-hidden flex flex-col'>
+        <div className='h-screen overflow-hidden flex flex-col bg-white'>
             <div className='flex flex-1 overflow-hidden'>
                 <div >
                     <SideBar toggleSidebar={toggleSidebar} isOpenSidebar={isOpenSidebar} />

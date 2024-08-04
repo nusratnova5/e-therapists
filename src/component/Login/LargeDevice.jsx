@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AuthSlider from '../Register/AuthSlider';
 
-const LargeDevice = ({handleGoogleLogin, googleimg, facebookimg, handleSignIn}) => {
+const LargeDevice = ({handleGoogleLogin, googleimg, facebookimg, handleSignIn, error}) => {
     return (
         <div className="h-screen">
             <div className=" grid grid-cols-1 lg:grid-cols-7 gap-10 h-full">
@@ -34,6 +34,7 @@ const LargeDevice = ({handleGoogleLogin, googleimg, facebookimg, handleSignIn}) 
                             </label>
                             <input type="password" name='password' defaultValue={'123456'} placeholder="password" className="input input-bordered" required />
                         </div>
+                        {error && <p className='text-red-500'>{error.message}</p>}
                         <div className="form-control flex flex-row items-center justify-between">
                             <label className="label cursor-pointer justify-start gap-2 text-sm">
                                 <input type="checkbox" className="checkbox h-4 w-4 rounded" />

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const SmallDevicec = ({ handleGoogleLogin, googleimg, facebookimg, handleSignIn }) => {
+const SmallDevicec = ({ handleGoogleLogin, googleimg, facebookimg, handleSignIn, error }) => {
     const canvasRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
 
@@ -66,14 +66,15 @@ const SmallDevicec = ({ handleGoogleLogin, googleimg, facebookimg, handleSignIn 
                             <label className="label">
                                 <span className="label-text text-dark-black font-medium">Email</span>
                             </label>
-                            <input type="email" name="email" placeholder="Enter your email" className="input input-bordered" required />
+                            <input type="email" name="email" defaultValue={'test@gmail.com'} placeholder="Enter your email" className="input input-bordered" required />
                         </div>
                         <div className="form-control mb-3">
                             <label className="label">
                                 <span className="label-text text-dark-black font-medium">Password</span>
                             </label>
-                            <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+                            <input type="password" name='password' defaultValue={'123456'} placeholder="password" className="input input-bordered" required />
                         </div>
+                        {error && <p className='text-red-500'>{error.message}</p>}
                         <div className="form-control flex flex-row items-center justify-between">
                             <label className="label cursor-pointer justify-start gap-2 text-sm">
                                 <input type="checkbox" className="checkbox h-4 w-4 rounded" />

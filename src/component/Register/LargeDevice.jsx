@@ -35,7 +35,7 @@ const LargeDevice = ({handleSignUp}) => {
                             <label className="label">
                                 <span className="label-text text-dark-black font-medium">Confirm Password</span>
                             </label>
-                            <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+                            <input type="password" name='confirmPassword' placeholder="password" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label cursor-pointer justify-start gap-2 text-sm">

@@ -30,7 +30,6 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         const res = await signInWithEmailAndPassword(email, password);
-        console.log(res);
     }
     const location = useLocation();
     let from = location.state?.from?.pathname || "/dashboard";
@@ -46,8 +45,8 @@ const Login = () => {
 
     return (
         <div>
-            <div className='hidden lg:block'><LargeDevice handleGoogleLogin={handleGoogleLogin} googleimg={googleimg} facebookimg={facebookimg} handleSignIn={handleSignIn} /></div>
-            <div className='block lg:hidden'><SmallDevicec handleGoogleLogin={handleGoogleLogin} googleimg={googleimg} facebookimg={facebookimg} handleSignIn={handleSignIn} /></div>
+            <div className='hidden lg:block'><LargeDevice error={error} handleGoogleLogin={handleGoogleLogin} googleimg={googleimg} facebookimg={facebookimg} handleSignIn={handleSignIn} /></div>
+            <div className='block lg:hidden'><SmallDevicec error={error} handleGoogleLogin={handleGoogleLogin} googleimg={googleimg} facebookimg={facebookimg} handleSignIn={handleSignIn} /></div>
         </div>
     );
 };

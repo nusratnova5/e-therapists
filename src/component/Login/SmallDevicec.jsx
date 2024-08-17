@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const SmallDevicec = ({ handleGoogleLogin, googleimg, facebookimg, handleSignIn, error }) => {
+const SmallDevicec = ({ handleGoogleLogin, googleimg, facebookimg, handleSignIn, error, loading }) => {
     const canvasRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
 
@@ -66,13 +66,13 @@ const SmallDevicec = ({ handleGoogleLogin, googleimg, facebookimg, handleSignIn,
                             <label className="label">
                                 <span className="label-text text-dark-black font-medium">Email</span>
                             </label>
-                            <input type="email" name="email" defaultValue={'test@gmail.com'} placeholder="Enter your email" className="input input-bordered" required />
+                            <input type="email" name="email" defaultValue={'test@gmail.com'} placeholder="Enter your email" className="input input-bordered bg-transparent" required />
                         </div>
                         <div className="form-control mb-3">
                             <label className="label">
                                 <span className="label-text text-dark-black font-medium">Password</span>
                             </label>
-                            <input type="password" name='password' defaultValue={'123456'} placeholder="password" className="input input-bordered" required />
+                            <input type="password" name='password' defaultValue={'123456'} placeholder="password" className="input input-bordered bg-transparent" required />
                         </div>
                         {error && <p className='text-red-500'>{error.message}</p>}
                         <div className="form-control flex flex-row items-center justify-between">
@@ -82,9 +82,18 @@ const SmallDevicec = ({ handleGoogleLogin, googleimg, facebookimg, handleSignIn,
                             </label>
                             <p className='text-end text-dark-blue text-sm font-medium underline'>Forget password</p>
                         </div>
-                        <div className="form-control mb-3 mt-6 items-center">
-                            <button className="btn bg-sky-blue hover:bg-slate-600 text-white px-28">Sign in</button>
-                        </div>
+                        {
+                            loading ? <button type="button" class="flex mb-3 mt-6 mx-auto w-60 bg-indigo-500 disabled:bg-blue-600 btn disabled:text-white" disabled>
+                                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Processing...
+                            </button> : <div className="form-control mb-3 mt-6 items-center">
+                                <button className="btn bg-sky-blue hover:bg-blue-600 text-white w-60">Sign in</button>
+                            </div>
+                        }
+
                     </form>
                     <div className='mb-3'>
                         <p className='text-center'>Don't have an account? <Link to={'/register'} className='text-dark-blue underline'>Create now </Link></p>

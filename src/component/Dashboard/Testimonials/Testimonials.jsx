@@ -7,6 +7,7 @@ import Testimonial from './Testimonial';
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
+  const [testimonial, setTestimonial] = useState({});
 
   useEffect(() => {
     axios.get('/jsons/testimonials.json')
@@ -34,16 +35,32 @@ const Testimonials = () => {
     }
   };
 
+  const handleReadMore = (currentTestimonial) => {
+    document.getElementById('testimonialModal').showModal();
+    setTestimonial(currentTestimonial);
+  }
+
   return (
     <div className='flex flex-col'>
-      <h1 className='mb-2 px-4 text-lg font-medium text-dark-black'>Featured Testimonials</h1>
+      <h1 className='mb-2 px-4 lg:px-0 text-lg font-medium text-dark-black'>Featured Testimonials</h1>
       <div className="slider-container max-w-full overflow-hidden p-5 rounded-lg bg-white flex-1">
         <Slider {...settings}>
           {
-            testimonials?.map((testimonial, index) => <Testimonial key={index} testimonial={testimonial} />)
+            testimonials?.map((testimonial, index) => <Testimonial key={index} handleReadMore={handleReadMore} testimonial={testimonial} />)
           }
         </Slider>
       </div>
+
+      {/* Open the modal using document.getElementById('ID').showModal() method */}
+      <dialog id="testimonialModal" className="modal">
+        <div className="modal-box bg-white">
+          <h3 className="font-bold text-lg">Full Description</h3>
+          <p className="py-4">{testimonial?.description}</p>
+        </div>
+        <form method="dialog" className="modal-backdrop">
+          <button>close</button>
+        </form>
+      </dialog>
     </div>
   );
 }

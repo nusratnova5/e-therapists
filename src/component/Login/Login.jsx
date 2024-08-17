@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { auth } from '../../Firebase/Firebase.config';
 import googleimg from '../Login/images/google.png'
@@ -10,6 +10,8 @@ import SmallDevicec from './SmallDevicec';
 
 const Login = () => {
     const [signInWithGoogle, googleuser, googleLoading] = useSignInWithGoogle(auth);
+    const [signInWithFacebook, facebookUser, facebookLoading, facebookError] = useSignInWithFacebook(auth);
+
 
     const handleGoogleLogin = async () => {
         await signInWithGoogle();
@@ -44,9 +46,9 @@ const Login = () => {
 
 
     return (
-        <div>
-            <div className='hidden lg:block'><LargeDevice error={error} handleGoogleLogin={handleGoogleLogin} googleimg={googleimg} facebookimg={facebookimg} handleSignIn={handleSignIn} /></div>
-            <div className='block lg:hidden'><SmallDevicec error={error} handleGoogleLogin={handleGoogleLogin} googleimg={googleimg} facebookimg={facebookimg} handleSignIn={handleSignIn} /></div>
+        <div className='bg-white'>
+            <div className='hidden lg:block'><LargeDevice loading={loading} error={error} signInWithFacebook={signInWithFacebook} handleGoogleLogin={handleGoogleLogin} googleimg={googleimg} facebookimg={facebookimg} handleSignIn={handleSignIn} /></div>
+            <div className='block lg:hidden'><SmallDevicec loading={loading} error={error} signInWithFacebook={signInWithFacebook} handleGoogleLogin={handleGoogleLogin} googleimg={googleimg} facebookimg={facebookimg} handleSignIn={handleSignIn} /></div>
         </div>
     );
 };

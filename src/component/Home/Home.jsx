@@ -84,25 +84,25 @@ const Home = () => {
                             <label className="label">
                                 <span className="label-text font-bold">Name</span>
                             </label>
-                            <input type="text" name="displayName" placeholder="@username" className="input input-bordered rounded-none" required />
+                            <input type="text" name="displayName" placeholder="@username" className="input input-bordered bg-transparent rounded-none" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-bold">Email</span>
                             </label>
-                            <input type="email" name="email" placeholder="Enter your email" className="input input-bordered" required />
+                            <input type="email" name="email" placeholder="Enter your email" className="input input-bordered bg-transparent" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-bold">Password</span>
                             </label>
-                            <input type="password" name='password' placeholder="Password" className="input input-bordered" required />
+                            <input type="password" name='password' placeholder="Password" className="input input-bordered bg-transparent" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-bold">Confirm Password</span>
                             </label>
-                            <input type="password" name='confirmPassword' placeholder="Confirm Password" className="input input-bordered" required />
+                            <input type="password" name='confirmPassword' placeholder="Confirm Password" className="input input-bordered bg-transparent" required />
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn bg-accent hover:bg-slate-600 text-white uppercase tracking-widest">Sign up</button>

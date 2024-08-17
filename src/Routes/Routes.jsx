@@ -5,6 +5,8 @@ import Login from "../component/Login/Login";
 import Register from "../component/Register/Register";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import Home from "../component/Home/Home";
+import AddTherapists from "../component/AddTherapists/AddTherapists";
+import axios from "axios";
 
 export const router = createBrowserRouter([
     {
@@ -29,8 +31,12 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: "",
-                element: <Dashboard />
+                element: <Dashboard />,
             },
+            {
+                path: "therapists",
+                element: <AddTherapists/>
+            }
         ]
     },
 ]);

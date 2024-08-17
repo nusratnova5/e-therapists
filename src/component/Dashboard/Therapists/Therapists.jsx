@@ -6,15 +6,34 @@ import axios from 'axios';
 import Therapist from './Therapist';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
-const Therapists = ({therapists}) => {
+const Therapists = () => {
     let sliderRef = useRef(null);
+    const [currentSlide, setCurrentSlide] = useState(1);
+    const [therapists, setTherapists] = useState([]);
+
+    
+    useEffect(() => {
+        featchTherapists();
+    }, []);
+
+    const featchTherapists = async () => {
+        try {
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/therapists`);
+            setTherapists(response.data);
+        } catch (error) {
+            console.error('Error fetching Therapists:', error);
+            throw error; // Rethrow the error to handle it outside
+        }
+    }
 
     const handleNext = () => {
         sliderRef.current.slickNext();
+        setCurrentSlide(current => current + 1);
     };
 
     const handlePrevious = () => {
         sliderRef.current.slickPrev();
+        setCurrentSlide(current => current - 1);
     };
 
     const settings = {
@@ -59,10 +78,10 @@ const Therapists = ({therapists}) => {
     };
     return (
         <div>
-            <h1 className='mb-2 px-4 text-lg font-medium text-dark-black'>Featured Testimonials</h1>
+            <h1 className='mb-2 px-4 lg:px-0 text-lg font-medium text-dark-black'>Featured Therapist</h1>
             <div className='p-5 bg-white flex items-center gap-5 therapists rounded-lg'>
-                <button className='hidden lg:block' onClick={handlePrevious}>
-                    <IoIosArrowBack className={`rounded-full p-2 text-4xl  ${'abc' === 'previous' ? 'bg-dark-blue text-white' : 'bg-light-blue text-dark-black'}`} />
+                <button className='hidden lg:block' disabled={currentSlide < 2} onClick={handlePrevious}>
+                    <IoIosArrowBack className={`rounded-full p-2 text-4xl  ${currentSlide < 2 ? 'bg-light-blue text-dark-black' : 'bg-dark-blue text-white'}`} />
                 </button>
                 <div className='flex-1 w-0'>
                     <Slider ref={sliderRef} {...settings}>
@@ -72,11 +91,8 @@ const Therapists = ({therapists}) => {
                         }
                     </Slider>
                 </div>
-                <button
-                    onClick={handleNext}
-                    className='hidden lg:block'
-                >
-                    <IoIosArrowForward className={`p-2 text-4xl rounded-full ${'abc' === 'next' ? 'bg-dark-blue text-white' : 'bg-light-blue text-dark-black'}`} />
+                <button onClick={handleNext} disabled={currentSlide > 4} className='hidden lg:block'>
+                    <IoIosArrowForward className={`p-2 text-4xl rounded-full ${currentSlide > 4 ? 'bg-light-blue text-dark-black' : 'bg-dark-blue text-white'}`} />
                 </button>
             </div>
         </div>

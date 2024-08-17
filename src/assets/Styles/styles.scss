@@ -92,6 +92,8 @@ $charcoal: #2E3439;
 
 body {
   font-family: "Poppins", sans-serif;
+  color: #1f2937;
+  background: white;
 }
 
 .therapists {
@@ -140,4 +142,36 @@ body {
   font-weight: 500;
   border-radius: 0;
   border-left: 5px solid $dark-black;
+}
+
+.therapist-cart:hover {
+  .btn {
+    background: $dark-blue;
+    color: #fff;
+  }
+}
+
+/* Custom scrollbar styles for WebKit browsers */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+  height: 12px; /* Height of the scrollbar (for horizontal scrollbars) */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* Background of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Background of the scrollbar thumb on hover */
+}
+
+/* Custom scrollbar styles for Firefox */
+* {
+  scrollbar-width: thin; /* Width of the scrollbar */
+  scrollbar-color: #888 #f1f1f1; /* Color of the scrollbar thumb and track */
 }

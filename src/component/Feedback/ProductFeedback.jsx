@@ -100,13 +100,13 @@ const ProductFeedback = ({ productId }) => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" placeholder="email" {...register("email")} className="input input-bordered rounded-none" required />
+                            <input type="email" placeholder="email" {...register("email")} className="input input-bordered bg-transparent rounded-none" required />
                         </div>
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" placeholder="name" {...register("name")} className="input input-bordered rounded-none" required />
+                            <input type="text" placeholder="name" {...register("name")} className="input input-bordered bg-transparent rounded-none" required />
                         </div>
                     </div>
                     <div className="flex mt-6">

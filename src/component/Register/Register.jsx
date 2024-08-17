@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -10,6 +10,7 @@ import LargeDevice from './LargeDevice';
 import SmallDevice from './SmallDevice';
 
 const Register = () => {
+    const [passwordError, setPasswordError] = useState(null);
     const [
         createUserWithEmailAndPassword,
         user,
@@ -23,9 +24,15 @@ const Register = () => {
         e.preventDefault();
         const form = e.target;
         const displayName = form.displayName.value;
-        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
+        const confirmPassword = form.confirmPassword.value;
+        if (password !== confirmPassword) {
+            setPasswordError("Password and confirm password doesn't matched");
+            return;
+        } else {
+            setPasswordError(null);
+        }
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName, photoURL });
         if (createUserError) {
@@ -58,9 +65,9 @@ const Register = () => {
     }, [user, navigate]);
 
     return (
-        <div>
-            <div className='hidden lg:block'><LargeDevice handleSignUp={handleSignUp} /></div>
-            <div className='block lg:hidden'><SmallDevice handleSignUp={handleSignUp} /></div>
+        <div className='bg-white'>
+            <div className='hidden lg:block'><LargeDevice loading={loading} passwordError={passwordError} createUserError={createUserError} handleSignUp={handleSignUp} /></div>
+            <div className='block lg:hidden'><SmallDevice loading={loading} passwordError={passwordError} createUserError={createUserError} handleSignUp={handleSignUp} /></div>
         </div>
     );
 };

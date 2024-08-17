@@ -89,6 +89,9 @@ const SideBar = ({ isOpenSidebar, toggleSidebar }) => {
                             </NavLink>
                         </li>
                     })}
+                    <li>
+                        <NavLink to='therapists'><p className='text-dark-gray'>Add therapists</p></NavLink>
+                    </li>
                 </ul>
 
             </div>

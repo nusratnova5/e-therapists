@@ -10,7 +10,7 @@ const Therapist = ({ therapist, isActive, onButtonClick }) => {
     };
 
     return (
-        <div className="card card-compact bg-white border border-gray">
+        <div className="card card-compact bg-white border border-gray therapist-cart">
             <figure>
                 <img
                     src={therapist?.image}
@@ -29,12 +29,7 @@ const Therapist = ({ therapist, isActive, onButtonClick }) => {
                     </div>
                 </div>
                 <div className="card-actions justify-end">
-                    <button
-                        className={`btn rounded-t-none w-full underline ${isActive ? 'bg-dark-blue text-white' : 'bg-light-blue'}`}
-                        onClick={onButtonClick}
-                    >
-                        See Details
-                    </button>
+                    <button className={`btn rounded-t-none w-full underline text-dark-black border-0 ${isActive ? 'bg-dark-blue text-white' : 'bg-light-blue'}`} onClick={onButtonClick}>See Details</button>
                 </div>
             </div>
         </div>
